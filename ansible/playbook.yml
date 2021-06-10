@@ -1,1 +1,51 @@
 ---
+- hosts: amazonlinux2-base
+  become: true
+  collections: 
+    - ch-collections.base
+  pre_tasks:
+    - name: Updating System Packages Before Ansible Run
+      yum:
+        name: '*'
+        state: latest
+ 
+  roles:
+    - role: ansible-cis-amazon-linux-2
+      cis_target_os_versions: 
+        - "2"
+      vars:         
+        cis_enable_rsyslog: false
+        cis_apply_level_2_profile: true
+        cis_level_1_exclusions:
+          - "5.2.15" #Allowed users/groups
+          - "5.4.1.1" #password expiry
+          - "5.4.1.4" #inactive password lock
+          # Mount options
+          - "1.1.2" 
+          - "1.1.3"
+          - "1.1.4"
+          - "1.1.5"
+          - "1.1.6"
+          - "1.1.7"
+          - "1.1.8"
+          - "1.1.9"
+          - "1.1.10"
+          - "1.1.11"
+          - "1.1.12"
+          - "1.1.13"
+          - "1.1.14"
+          - "1.1.15"
+          - "1.1.16"
+          - "1.1.17"
+          - "3.4.2" #/etc/hosts.allow
+          - "3.4.3" #/etc/hosts.deny
+        cis_level_2_exclusions: 
+          - "6.1.1"
+    - name: epel
+      vars:
+        epel_repo_url: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
+        epel_repo_gpg_key_url: "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7"
+    - ch_collections.base.pip
+    - ch_collections.base.os_package_control
+    - clamav
+    - cloudwatch-agent

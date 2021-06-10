@@ -27,13 +27,13 @@ variable "aws_region" {
 
 variable "aws_source_ami_filter_name" {
   type        = string
-  default     = "CentOS 8* x86_64*"
+  default     = "amzn2-ami-hvm-2.*"
   description = "The source AMI filter string. Any filter described by the DescribeImages API documentation is valid. If multiple images match then the latest will be used"
 }
 
 variable "aws_source_ami_owner_id" {
   type        = string
-  default     = "125523088429"
+  default     = "137112412989"
   description = "The source AMI owner ID; used in combination with aws_source_ami_filter_name to filter for matching source AMIs"
 }
 
@@ -69,4 +69,10 @@ variable "ssh_username" {
 variable "version" {
   type        = string
   description = "The semantic version number for the AMI; the version string will be appended automatically to the name tags added to the resulting AMI and snapshot(s)"
+}
+
+variable "kms_key_id" {
+  type        = string
+  default     = null
+  description = "KMS key ID, arn or alias to use for root volume encryption in the main region. If encrypt_boot is true and this is left null, the AWS default key is used"
 }

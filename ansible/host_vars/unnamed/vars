@@ -1,1 +1,11 @@
 ---
+additional_packages:
+  - screen
+  - git
+  - https://s3.{{ region| default("eu-west-2") }}.amazonaws.com/amazon-ssm-{{ region| default("eu-west-2") }}/latest/linux_amd64/amazon-ssm-agent.rpm
+
+pip_install_packages:
+  - name: pip
+    state: latest
+  - name: ansible
+    version: "2.10.6"
