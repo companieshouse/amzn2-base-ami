@@ -39,11 +39,6 @@
           - "1.1.17"
           - "3.4.2" #/etc/hosts.allow
           - "3.4.3" #/etc/hosts.deny
-          - "3.6.1"
-          - "3.6.2"
-          - "3.6.3"
-          - "3.6.4"
-          - "3.6.5"
         cis_level_2_exclusions: 
           - "6.1.1"
     - name: epel
