@@ -11,6 +11,7 @@ variable "ami_name_prefix" {
 
 variable "ansible_host_alias" {
   type        = string
+  default     = "amzn2-base"
   description = "The Ansible host alias"
 }
 

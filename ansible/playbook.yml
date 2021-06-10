@@ -1,5 +1,5 @@
 ---
-- hosts: amazonlinux2-base
+- hosts: amzn2-base
   become: true
   collections: 
     - ch-collections.base
