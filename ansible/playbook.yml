@@ -1,1 +1,21 @@
 ---
+- hosts: amzn2-base
+  become: true
+  collections: 
+    - ch-collections.base
+  pre_tasks:
+    - name: Updating System Packages Before Ansible Run
+      yum:
+        name: '*'
+        state: latest
+
+  roles:
+    - role: ansible-cis-amazon-linux-2
+      cis_target_os_versions: 
+        - "2"
+    - epel
+    - ch_collections.base.pip
+    - ch_collections.base.os_package_control
+    - clamav
+    - cloudwatch-agent
+    - ch_collections.base.nagios_nrpe_client
