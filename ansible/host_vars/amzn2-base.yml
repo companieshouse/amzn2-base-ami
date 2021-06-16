@@ -3,6 +3,8 @@ additional_packages:
   - screen
   - git
   - https://s3.{{ region| default("eu-west-2") }}.amazonaws.com/amazon-ssm-{{ region| default("eu-west-2") }}/latest/linux_amd64/amazon-ssm-agent.rpm
+  - python-pip
+  - python3-pip
 
 pip_install_packages:
   - name: pip
