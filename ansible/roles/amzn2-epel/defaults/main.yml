@@ -1,0 +1,4 @@
+---
+epel_repo_priority: 10
+epel_repofile_path: "/etc/yum.repos.d/epel.repo"
+set_epel_repo_priority: true
