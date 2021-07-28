@@ -13,9 +13,9 @@
     - role: ansible-cis-amazon-linux-2
       cis_target_os_versions: 
         - "2"
-    - epel
-    - ch_collections.base.pip
+    - amzn2-epel
     - ch_collections.base.os_package_control
+    - ch_collections.base.pip
     - clamav
     - cloudwatch-agent
     - ch_collections.base.nagios_nrpe_client
