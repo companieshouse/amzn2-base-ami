@@ -8,11 +8,7 @@ roles:
     name: cloudwatch-agent
     version: "2.0.6"
 
-  - src: geerlingguy.clamav
-    name: clamav
-    version: "1.3.2"
-
 collections:
   - name: https://github.com/companieshouse/ansible-collections.git#ch_collections/base
-    version: 0.1.50
+    version: 0.1.74
     type: git
