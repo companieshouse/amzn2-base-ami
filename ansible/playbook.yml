@@ -10,12 +10,12 @@
         state: latest
 
   roles:
+    - role: ansible-cis-amazon-linux-2
+      cis_target_os_versions: 
+        - "2"
     - amzn2-epel
     - ch_collections.base.os_package_control
     - ch_collections.base.pip
     - ch_collections.base.clamav
     - cloudwatch-agent
-    - role: ansible-cis-amazon-linux-2
-      cis_target_os_versions: 
-        - "2"
     - ch_collections.base.nagios_nrpe_client
