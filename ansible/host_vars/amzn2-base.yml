@@ -5,6 +5,9 @@ additional_packages:
   - https://s3.{{ region| default("eu-west-2") }}.amazonaws.com/amazon-ssm-{{ region| default("eu-west-2") }}/latest/linux_amd64/amazon-ssm-agent.rpm
   - python-pip
   - python3-pip
+  - libselinux-python
+  - libsemanage-python
+  - policycoreutils-python
   - jq
 
 pip_install_packages:
