@@ -6,9 +6,9 @@ roles:
 
   - src: https://github.com/christiangda/ansible-role-amazon-cloudwatch-agent.git
     name: cloudwatch-agent
-    version: "2.0.6"
+    version: "2.0.7"
 
 collections:
   - name: https://github.com/companieshouse/ansible-collections.git#ch_collections/base
-    version: 0.1.86
+    version: 0.1.91
     type: git

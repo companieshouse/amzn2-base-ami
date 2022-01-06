@@ -18,5 +18,21 @@
     - ch_collections.base.pip
     - ch_collections.base.clamav
     - cloudwatch-agent
+    - ch_collections.base.cloudwatch_agent_helper
     - ch_collections.base.nagios_nrpe_client
     - ch_collections.base.auditd
+
+  tasks: 
+    - name: Setup deployment playbook dependancies (1/2)  
+      ansible.builtin.copy:
+        src: "{{ item }}"
+        dest: "/root/{{ item | basename }}"
+        mode: 0755
+      loop: 
+        - deployment.yml
+        - requirements.yml
+
+    - name: Setup deployment playbook dependancies (2/2)
+      command: "/usr/local/bin/ansible-galaxy install -f -r /root/requirements.yml"
+      register: requirements_output
+      changed_when: '"was installed successfully" in requirements_output.stdout'
