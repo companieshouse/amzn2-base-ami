@@ -22,6 +22,9 @@ pip_install_packages:
   - name: j2cli
     umask: "0022"
 
+## CloudWatch Agent Variables
+cwa_conf_json_file_content: "{{ lookup('file', 'files/cloudwatch-config.json') }}"
+
 epel_repo_url: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
 epel_repo_gpg_key_url: "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7"
 
@@ -56,18 +59,15 @@ cis_level_2_exclusions:
   - "6.1.1"
 
 ## Nagios Variables
+nagios_host: nagios.sharedservices.aws.internal
 nrpe_allowed_hosts:
   - "127.0.0.1"
   - "10.44.12.0/24"
   - "10.44.13.0/24"	
   - "10.44.14.0/24"
-nrpe_plugin_packages:
-  - nagios-plugins-nrpe
-  - nagios-plugins
-  - nagios-plugins-disk
 nrpe_command:
   check_disk_all:
     script: check_disk
     option: -w 80 -c 90
 nrpe_config: 
-  dont_blame_nrpe: 0
+  dont_blame_nrpe: 1
