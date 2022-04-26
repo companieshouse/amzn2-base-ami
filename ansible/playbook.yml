@@ -36,3 +36,9 @@
       command: "/usr/local/bin/ansible-galaxy install -f -r /root/requirements.yml"
       register: requirements_output
       changed_when: '"was installed successfully" in requirements_output.stdout'
+
+    - name: service chronyd
+      service:
+        name: chronyd
+        state: started
+        enabled: yes
