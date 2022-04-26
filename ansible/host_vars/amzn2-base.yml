@@ -9,6 +9,7 @@ additional_packages:
   - libsemanage-python
   - policycoreutils-python
   - jq
+  - chrony
 
 pip_install_packages:
   - name: pip
