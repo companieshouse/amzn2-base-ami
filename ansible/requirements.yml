@@ -12,3 +12,5 @@ collections:
   - name: https://github.com/companieshouse/ansible-collections.git#ch_collections/base
     version: 0.1.91
     type: git
+  - name: community.general
+    version: 4.8.0
