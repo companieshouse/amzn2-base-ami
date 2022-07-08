@@ -78,3 +78,16 @@ variable "kms_key_id" {
   default     = null
   description = "KMS key ID, arn or alias to use for root volume encryption in the main region. If encrypt_boot is true and this is left null, the AWS default key is used"
 }
+
+variable "swap_volume_device_node" {
+  type        = string
+  default     = "/dev/xvdb"
+  description = "The device node identifier for the swap volume"
+}
+
+variable "swap_volume_size_gb" {
+  type        = number
+  default     = 5
+  description = "The EC2 instance swap volume size in Gibibytes (GiB); set to 0 to disable swap volume"
+}
+
