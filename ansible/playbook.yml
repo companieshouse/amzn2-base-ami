@@ -41,3 +41,16 @@
         name: chronyd
         state: started
         enabled: yes
+
+    - name: Restrict Kernel log access
+      block:
+        - name: Copy hardening file
+          ansible.builtin.copy:
+            src: 10-kernel-hardening.conf
+            dest: /etc/sysctl.d/10-kernel-hardening.conf
+            owner: root
+            group: root
+            mode: '0600'
+        - name: Update Kernel Parameters
+          command: sysctl -p
+        
