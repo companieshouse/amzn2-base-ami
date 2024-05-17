@@ -53,4 +53,20 @@
             mode: '0600'
         - name: Update Kernel Parameters
           command: sysctl -p
-        
+
+    - name: Enable security banner
+      block:
+        - name: Copy message of the day file
+          ansible.builtin.copy:
+            src: motd
+            dest: /etc/motd
+            owner: root
+            group: root
+            mode: '0644'
+        - name: Copy banner.sh
+          ansible.builtin.copy:
+            src: banner.sh
+            dest: /etc/profile.d/banner.sh
+            owner: root
+            group: root
+            mode: '0644'
