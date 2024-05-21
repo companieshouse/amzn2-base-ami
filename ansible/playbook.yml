@@ -70,3 +70,9 @@
             owner: root
             group: root
             mode: '0644'
+        - name: Disable pam motd
+          ansible.builtin.replace:
+            path: /etc/pam.d/sshd
+            regexp: '(\s+)session\ \ \ \ optional\ \ \ \ \ pam_motd.so(\s+.*)?$'
+            replace: '\1#session    optional     pam_motd.so\2'
+            backup: yes
