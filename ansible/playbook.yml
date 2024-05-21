@@ -75,4 +75,4 @@
             path: /etc/pam.d/sshd
             regexp: '(\s+)session\ \ \ \ optional\ \ \ \ \ pam_motd.so(\s+.*)?$'
             replace: '\1#session    optional     pam_motd.so\2'
-            backup: yes
+            backup: no
