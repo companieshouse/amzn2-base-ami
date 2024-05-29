@@ -3,6 +3,7 @@
   become: true
   collections: 
     - ch-collections.base
+    - ch-collections.security_banner
   pre_tasks:
     - name: Updating System Packages Before Ansible Run
       yum:
@@ -20,7 +21,8 @@
     - cloudwatch-agent
     - ch_collections.base.cloudwatch_agent_helper
     - ch_collections.base.auditd
-
+    - ch_collections.security_banner.banner
+    
   tasks: 
     - name: Setup deployment playbook dependancies (1/2)  
       ansible.builtin.copy:
@@ -53,4 +55,3 @@
             mode: '0600'
         - name: Update Kernel Parameters
           command: sysctl -p
-        

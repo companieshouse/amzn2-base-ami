@@ -14,3 +14,5 @@ collections:
     type: git
   - name: community.general
     version: 4.8.0
+  - name: https://github.com/companieshouse/ansible-collections.git#ch_collections/security_banner
+    type: git
