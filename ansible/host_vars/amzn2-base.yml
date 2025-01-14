@@ -58,17 +58,3 @@ cis_level_1_exclusions:
   - "3.4.3" #/etc/hosts.deny
 cis_level_2_exclusions: 
   - "6.1.1"
-
-## Nagios Variables
-nagios_host: nagios.sharedservices.aws.internal
-nrpe_allowed_hosts:
-  - "127.0.0.1"
-  - "10.44.12.0/24"
-  - "10.44.13.0/24"	
-  - "10.44.14.0/24"
-nrpe_command:
-  check_disk_all:
-    script: check_disk
-    option: -w 80 -c 90
-nrpe_config: 
-  dont_blame_nrpe: 1
