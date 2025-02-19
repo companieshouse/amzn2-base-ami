@@ -3,7 +3,7 @@
   become: true
   collections: 
     - ch-collections.base
-    - ch-collections.security_banner
+    
   pre_tasks:
     - name: Updating System Packages Before Ansible Run
       yum:
