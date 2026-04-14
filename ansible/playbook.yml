@@ -17,7 +17,7 @@
     - amzn2-epel
     - ch_collections.base.os_package_control
     - ch_collections.base.pip
-    - ch_collections.base.clamav
+    - companieshouse.security.clamav_ng
     - cloudwatch-agent
     - ch_collections.base.cloudwatch_agent_helper
     - ch_collections.base.auditd

@@ -29,8 +29,6 @@ cwa_conf_json_file_content: "{{ lookup('file', 'files/cloudwatch-config.json') }
 epel_repo_url: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
 epel_repo_gpg_key_url: "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7"
 
-clamav_mirror: http://clamav-mirror.sharedservices.aws.internal
-
 cis_enable_rsyslog: false
 cis_apply_level_2_profile: true
 cis_level_1_exclusions:
@@ -58,3 +56,6 @@ cis_level_1_exclusions:
   - "3.4.3" #/etc/hosts.deny
 cis_level_2_exclusions: 
   - "6.1.1"
+
+## clamav_ng Variables
+clamav_ng_freshclam_privatemirror: "clamav-mirror.{{ clamav_ng_freshclam_privatemirror_domain }}"
