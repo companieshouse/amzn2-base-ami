@@ -5,7 +5,6 @@ source "amazon-ebs" "builder" {
   communicator              = "ssh"
   force_delete_snapshot     = var.force_delete_snapshot
   force_deregister          = var.force_deregister
-  imds_support              = "v2.0"
   instance_type             = var.aws_instance_type
   region                    = var.aws_region
   ssh_clear_authorized_keys = var.ssh_clear_authorized_keys
@@ -22,12 +21,6 @@ source "amazon-ebs" "builder" {
     throughput            = var.root_volume_throughput
     volume_size           = var.root_volume_size_gb
     volume_type           = "gp3"
-  }
-
-  metadata_options {
-    http_endpoint               = "enabled"
-    http_tokens                 = "required"
-    http_put_response_hop_limit = 1
   }
 
   security_group_filter {
