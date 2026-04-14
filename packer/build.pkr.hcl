@@ -7,8 +7,7 @@ build {
     host_alias = "${var.ansible_host_alias}"
     playbook_file = "${var.playbook_file_path}"
     extra_arguments  = [
-      "-e", "aws_region=${var.aws_region}",
-      "-e", "clamav_ng_freshclam_privatemirror_domain=${var.clamav_ng_freshclam_privatemirror_domain}"
+      "-e", "aws_region=${var.aws_region}"
     ]
   }
 

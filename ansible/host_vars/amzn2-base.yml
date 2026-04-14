@@ -58,4 +58,4 @@ cis_level_2_exclusions:
   - "6.1.1"
 
 ## clamav_ng Variables
-clamav_ng_freshclam_privatemirror: "clamav-mirror.{{ clamav_ng_freshclam_privatemirror_domain }}"
+clamav_ng_freshclam_privatemirror: clamav-mirror.companieshouse.gov.uk
