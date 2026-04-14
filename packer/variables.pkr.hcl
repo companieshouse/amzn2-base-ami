@@ -114,3 +114,9 @@ variable "kms_key_id" {
   default     = null
   description = "KMS key ID, arn or alias to use for root volume encryption in the main region. If encrypt_boot is true and this is left null, the AWS default key is used"
 }
+
+variable "clamav_ng_freshclam_privatemirror_domain" {
+  type        = string
+  default     = ""
+  description = "The domain name to use when defining the private mirror for the clamav_ng Ansible role"
+}
