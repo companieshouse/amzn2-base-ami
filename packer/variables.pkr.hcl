@@ -3,6 +3,12 @@ variable "ami_account_ids" {
   description = "A list of account IDs that have access to launch the resulting AMI(s)"
 }
 
+variable "ami_regions" {
+  type        = list(string)
+  default     = ["eu-west-2"]
+  description = "A list of AWS regions that the AMI will be made available in"
+}
+
 variable "ami_name_prefix" {
   type        = string
   default     = "amzn2-base"
@@ -44,6 +50,18 @@ variable "aws_subnet_filter_name" {
   description = "The subnet filter string. Any filter described by the DescribeSubnets API documentation is valid. If multiple subnets match then the one with the most IPv4 addresses free will be used"
 }
 
+variable "force_delete_snapshot" {
+  type        = bool
+  default     = false
+  description = "Delete snapshots associated with AMIs, which have been deregistered by force_deregister"
+}
+
+variable "force_deregister" {
+  type        = bool
+  default     = false
+  description = "Deregister an existing AMI if one with the same name already exists"
+}
+
 variable "playbook_file_path" {
   type        = string
   default     = "../ansible/playbook.yml"
@@ -54,6 +72,24 @@ variable "root_volume_size_gb" {
   type        = number
   default     = 20
   description = "The EC2 instance root volume size in Gibibytes (GiB)"
+}
+
+variable "root_volume_throughput" {
+  type        = number
+  default     = 125
+  description = "The EC2 instance root volume throughput (MiB/s)"
+}
+
+variable "root_volume_iops" {
+  type        = number
+  default     = 3000
+  description = "The EC2 instance root volume IOPS"
+}
+
+variable "ssh_clear_authorized_keys" {
+  type        = bool
+  default     = true
+  description = "Defines whether the authorized_keys file should be cleared, post-build"
 }
 
 variable "ssh_private_key_file" {
