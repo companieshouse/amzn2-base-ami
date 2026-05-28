@@ -59,6 +59,7 @@ source "amazon-ebs" "builder" {
   }
 
   tags = {
-    Name    = "${var.ami_name_prefix}-${var.version}"
+    Name      = "${var.ami_name_prefix}-${var.version}"
+    BuildDate = "${var.build_date}"
   }
 }
