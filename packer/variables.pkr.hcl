@@ -50,6 +50,12 @@ variable "aws_subnet_filter_name" {
   description = "The subnet filter string. Any filter described by the DescribeSubnets API documentation is valid. If multiple subnets match then the one with the most IPv4 addresses free will be used"
 }
 
+variable "build_date" {
+  type        = string
+  default     = ""
+  description = "ISO 8601 UTC (human-readable) timestamp of the build; surfaced as the AMI's BuildDate tag"
+}
+
 variable "force_delete_snapshot" {
   type        = bool
   default     = false
@@ -60,6 +66,12 @@ variable "force_deregister" {
   type        = bool
   default     = false
   description = "Deregister an existing AMI if one with the same name already exists"
+}
+
+variable "kms_key_id" {
+  type        = string
+  default     = null
+  description = "KMS key ID, arn or alias to use for root volume encryption in the main region. If encrypt_boot is true and this is left null, the AWS default key is used"
 }
 
 variable "playbook_file_path" {
@@ -107,10 +119,4 @@ variable "ssh_username" {
 variable "version" {
   type        = string
   description = "The semantic version number for the AMI; the version string will be appended automatically to the name tags added to the resulting AMI and snapshot(s)"
-}
-
-variable "kms_key_id" {
-  type        = string
-  default     = null
-  description = "KMS key ID, arn or alias to use for root volume encryption in the main region. If encrypt_boot is true and this is left null, the AWS default key is used"
 }
